@@ -48,3 +48,11 @@ function displayErrors () {
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 }
+
+function triangle ($nb) {
+    $a  = '*';
+    for ($i = 0; $i < $nb; $i++) {
+        echo "$a<br>";
+        $a .= '*';
+    }
+}

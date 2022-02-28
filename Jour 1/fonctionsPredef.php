@@ -28,10 +28,10 @@ if (in_array('rugby', $tableau)) {
 //Fonctions mathématiques
 
 //la fonction rand permet de générer un nombre aléatoire en x et X
-rand(0, 100);
+$rand = rand(0, 100);
 
 //sqrt retourne la racine carrée d'un nombre
 $sqrt = sqrt(500);
 
 //round retourn l'arrondi du nombre décimal passé en paramètre
-echo round($sqrt, 2);
+//echo round($sqrt, 2);
