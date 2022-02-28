@@ -79,6 +79,13 @@ switch ($a) {
 //définition d'un tableaux literal
 //On peut définir un index avec un nombre ou une string
 $tab = [64 => 54, 'Nombre' => 67, 94, 'String', true];
+
+//faire référence / redéfinir un élement avec son index
+$tab[64] = 55;
+
+//définir une valeur à la volée
+$tab['index'] = 78;
+
 //var_dump($tab);
 
 //définition d'un tableau vide
