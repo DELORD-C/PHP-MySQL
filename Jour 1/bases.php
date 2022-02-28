@@ -44,10 +44,22 @@ $d = $a + $c;
 // %        Modulo
 
 
+
+
 //Les conditions
 
+//Opérateurs de condition
+// ==       Egal
+// !=       Différent
+// >        Supérieur
+// >=       Supérieur ou égal
+// <        Inférieur
+// <=       Inférieur ou égal
+// ||       Ou      Or
+// &&       Et      And
+
 //SI        IF
-if ($a > 10) {
+if ($a > 10 && $b < 10) {
     //actions à effectuer si vrai
 }
 //else facultatif
@@ -57,6 +69,7 @@ else if ($b =! NULL) {
 else {
     //actions si toutes les conditions sont fauses
 }
+
 
 
 //Switch
@@ -148,3 +161,11 @@ $fruits = [
 
 //sort permet de trier alphabétiquement un tableau
 sort($fruits);
+
+
+
+// Les constantes
+// Fonctionnent comme les variables sauf que leur valeur ne peut pas être modifiée
+define("CONSTANTE", 'valeur');
+
+echo CONSTANTE;
