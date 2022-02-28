@@ -10,20 +10,25 @@
     <form action="" method='POST' enctype="multipart/form-data">
         <input type="text" name="id">
         <input type="password" name="pass">
-        <input type="file" name='file'>
+        <input type="file" name='file1'>
+        <input type="file" name='file2'>
         <input type="submit" value='Envoyer'>
     </form>
     <?php
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    if ($_POST['id'] == 'root' && $_POST['pass'] == 'root') {
-        echo '<img src="img.png">';
-    }
+    // if ($_POST['id'] == 'root' && $_POST['pass'] == 'root') {
+    //     echo '<img src="img.png">';
+    // }
+
+    echo '<pre>';
+    var_dump($_FILES);
+    echo '</pre>';
 
     if (!empty($_FILES)) {
-        $dir = '/upload/';
-        $newFile = $dir . $_FILES['file']['name'];
+        $dir = __DIR__ . '/upload/';
+        $newFile = $dir . basename($_FILES['file']['name']);
         move_uploaded_file($_FILES['file']['tmp_name'], $newFile);
     }
     ?>
