@@ -17,7 +17,15 @@ $data = json_decode($json);
 // var_dump($data);
 // echo '</pre>';
 
-//l'objet PDO sert à se connecter à la base de donnée
+//l'objet PDO sert à se connecter à la base de donnée, on lui passe les différents attributs de notre objet $data
 $bdd = new PDO($data->type . ':host=' . $data->hote . ';dbname=' . $data->dbname, $data->utilisateur, $data->pass);
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+$requete = $bdd->prepare("SELECT * FROM film");
+$requete->execute();
+$resultats = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+echo '<pre>';
+var_dump($resultats);
+echo '</pre>';
