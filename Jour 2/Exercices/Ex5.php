@@ -10,26 +10,37 @@
 
     <?php
 
+    session_start();
 
+    if (isset($_GET['disconnect'])) {
+        session_destroy();
+        session_start();
+    }
 
+    //un if est interpreté de gauche à droite
+    if (isset($_POST['email']) && isset($_POST['password']) && $_POST['email'] == 'a@a.a' && $_POST['password'] == 'a') {
+        $_SESSION['connect'] = 1;
+    }
+
+    if (!isset($_SESSION['connect']) || $_SESSION['connect'] != 1) {
+        ?>
+        <form method='post'>
+            <input type="email" name='email' placeholder='Email'>
+            <input type="password" name='password' placeholder='Password'>
+            <input type="submit" value='Connexion'>
+        </form>
+        <?php
+    }
+
+    if (isset($_SESSION['connect']) && $_SESSION['connect'] == 1) {
+        ?>
+        <div>
+            <p>Bonjour</p>
+            <a href='?disconnect=true'>Déconnexion</a>
+        </div>
+        <?php
+    }
     ?>
-    
-    <form method='post'>
-        <input type="email" name='email' placeholder='Email'>
-        <input type="password" name='password' placeholder='Password'>
-        <input type="submit" value='Connexion'>
-    </form>
-    
-    <?php
-
-            
-
-    ?>
-
-    <div>
-        <p>Bonjour</p>
-        <a href='?disconnect=true'>Déconnexion</a>
-    </div>
 </body>
 </html>
 

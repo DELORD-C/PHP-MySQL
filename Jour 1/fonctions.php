@@ -30,7 +30,6 @@ function fibonacci (int $nb) {
         echo '<br>';
     }
 }
-
 // fibonacci(30);
 
 //fonction avec retour
@@ -40,7 +39,6 @@ function isPair(int $nb) {
     }
     return false;
 }
-
 // dump(isPair(8));
 
 function displayErrors () {
@@ -49,6 +47,7 @@ function displayErrors () {
     error_reporting(E_ALL);
 }
 
+//fonction pour l'exercice 4
 function triangle ($nb) {
     $a  = '*';
     for ($i = 0; $i < $nb; $i++) {
