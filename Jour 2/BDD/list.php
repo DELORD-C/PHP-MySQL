@@ -29,7 +29,10 @@
                     <td><?=$film['nom']?></td>
                     <td><?=$film['resume']?></td>
                     <td><?=$film['note']?></td>
-                    <td><a href='detail.php?id=<?=$film['id']?>'>Voir</a></td>
+                    <td>
+                        <a href='detail.php?id=<?=$film['id']?>'>Voir</a>
+                        <a href='editer.php?id=<?=$film['id']?>'>Modifier</a>
+                    </td>
                 </tr>
             <?php } ?>
 
