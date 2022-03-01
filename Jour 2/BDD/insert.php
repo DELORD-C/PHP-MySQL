@@ -39,5 +39,6 @@ if (isset($_POST['nom'])) {
         <textarea name="resume" placeholder="Résumé"></textarea><br/>
         <input type="submit" value="Ajouter">
     </form>
+    <a href='list.php'>Retour</a>
 </body>
 </html>

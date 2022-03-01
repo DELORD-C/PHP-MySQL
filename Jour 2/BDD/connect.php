@@ -21,3 +21,9 @@ $bdd = new PDO($data->type . ':host=' . $data->hote . ';dbname=' . $data->dbname
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $bdd->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+function dump($a) {
+    echo '<pre>';
+    var_dump($a);
+    echo '</pre>';
+}
