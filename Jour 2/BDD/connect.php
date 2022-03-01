@@ -4,6 +4,20 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$bdd = new PDO('mysql:host=localhost;dbname=dawan', 'root', 'root');
+
+//$password = file_get_contents('password.secret');
+
+//file_get_contents récupère le contenu de notre fichier en string
+$json = file_get_contents('env.json');
+
+//json_decode transforme notre string en objet
+$data = json_decode($json);
+
+// echo '<pre>';
+// var_dump($data);
+// echo '</pre>';
+
+//l'objet PDO sert à se connecter à la base de donnée
+$bdd = new PDO($data->type . ':host=' . $data->hote . ';dbname=' . $data->dbname, $data->utilisateur, $data->pass);
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
