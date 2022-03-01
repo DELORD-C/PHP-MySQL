@@ -4,7 +4,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
 //$password = file_get_contents('password.secret');
 
 //file_get_contents récupère le contenu de notre fichier en string
@@ -21,11 +20,4 @@ $data = json_decode($json);
 $bdd = new PDO($data->type . ':host=' . $data->hote . ';dbname=' . $data->dbname, $data->utilisateur, $data->pass);
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-
-$requete = $bdd->prepare("SELECT * FROM film");
-$requete->execute();
-$resultats = $requete->fetchAll(PDO::FETCH_ASSOC);
-
-echo '<pre>';
-var_dump($resultats);
-echo '</pre>';
+$bdd->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
