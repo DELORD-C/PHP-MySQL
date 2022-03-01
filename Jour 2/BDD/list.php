@@ -30,14 +30,14 @@
                     <td><?=$film['resume']?></td>
                     <td><?=$film['note']?></td>
                     <td>
-                        <a href='detail.php?id=<?=$film['id']?>'>Voir</a>
-                        <a href='editer.php?id=<?=$film['id']?>'>Modifier</a>
+                        <a href='film.php?id=<?=$film['id']?>'>Voir</a>
+                        <a href='film.php?id=<?=$film['id']?>&delete=true'>Supprimer</a>
                     </td>
                 </tr>
             <?php } ?>
 
         </tbody>
     </table>
-    <a href='insert.php'>Insérer un nouveau film</a>
+    <a href='film.php'>Insérer un nouveau film</a>
 </body>
 </html>
