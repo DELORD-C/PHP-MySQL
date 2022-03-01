@@ -1,5 +1,8 @@
 <?php
+    //on démarre la session
     session_start();
+
+    //on vérifie si l'utilisateur est connecté en testant la variable de session
     if (!isset($_SESSION['connected']) || $_SESSION['connected'] != 1) {
         header('location: connect.php');
     }
