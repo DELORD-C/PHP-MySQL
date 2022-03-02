@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 //$password = file_get_contents('password.secret');
 
 //file_get_contents récupère le contenu de notre fichier en string
-$json = file_get_contents('env.json');
+$json = file_get_contents(__DIR__ . '/env.json');
 
 //json_decode transforme notre string en objet
 $data = json_decode($json);
