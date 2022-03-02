@@ -15,7 +15,7 @@ Créer une table voitures avec les champs :
 
 2. PROJET
 
-- Créer un dossier Voiture dans Jour 2/Exercices
+- Créer un dossier Voiture dans Jour 3/Exercices
 - Créer 5 fichiers :
     - `create.php`
     - `read.php`
