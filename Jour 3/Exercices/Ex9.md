@@ -2,7 +2,7 @@
 
 1. BDD
 
-Créer une table voitures avec les champs :
+Créer une table voiture avec les champs :
 - Marque
 - Modèle
 - Version (optionnel)

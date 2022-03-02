@@ -10,8 +10,7 @@
     <form action="" method='POST' enctype="multipart/form-data">
         <input type="text" name="id">
         <input type="password" name="pass">
-        <input type="file" name='file1'>
-        <input type="file" name='file2'>
+        <input type="file" name='file'>
         <input type="submit" value='Envoyer'>
     </form>
     <?php
@@ -27,8 +26,8 @@
     echo '</pre>';
 
     if (!empty($_FILES)) {
-        $dir = __DIR__ . '/upload/';
-        $newFile = $dir . basename($_FILES['file']['name']);
+        $dir = 'upload/';
+        $newFile = $dir . $_FILES['file']['name'];
         move_uploaded_file($_FILES['file']['tmp_name'], $newFile);
     }
     ?>
