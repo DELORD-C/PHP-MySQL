@@ -5,11 +5,10 @@ $requete = $bdd->prepare("SELECT * FROM page WHERE id = :id");
 $requete->execute(['id' => $_GET['page']]);
 $page = $requete->fetch();
 
-$regex = "";
-
 // preg match all sert à rechercher toutes les occurence d'une regex (1er parametre)
 // dans une chaine de caractères (2e paramètre) et stocker les résultats dans un tableau (3e parametre)
 preg_match_all('/{bloc:([0-9]+)}/', $page['contenu'], $resultats);
+dump($resultats);
 
 if (!empty($resultats)) {
     foreach ($resultats[0] as $index => $blocCode) {
