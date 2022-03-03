@@ -84,6 +84,11 @@ Reprennez les champs de la base de donnée pour alimenter les champs des formula
 ## <u> 7. admin/page/</u>
 
 Idem que pour les blocs, mais avec les pages.
+On ajoute juste une précision à coté du champs `contenu` sur les pages `create.php` et `update.php` :
+```html
+<p>Insérez des blocs ci-dessus en utilisant la syntaxe suivantes :</p>
+<p>{bloc:[ID DU BLOC]}</p>
+```
 
 ---
 
@@ -137,7 +142,7 @@ SELECT contenu FROM bloc WHERE id = :id
 $page = str_replace($blocCode, $contenu, $page);
 ```
 
-Enfin, on affiche une page html complète en plaçant le ,contenu de notre page mis à jour à l'intérieur de notre balise `<body>`
+Enfin, on affiche une page html complète en mettant le titre de notre page dans la balise `<title>` et en plaçant le contenu de la page mis à jour à l'intérieur de la balise `<body>`
 
 ---
 
