@@ -1,5 +1,10 @@
 # Exercice 10
 
+Pour commencer créer un dossier MyCMS dans Jour 4,
+puis créer un dossier admin dans celui-ci.
+
+Copier coller les fichier `bdd.php` et `env.json` depuis MyCMS dans jour 3 dans le dossier admin récemment créé.
+
 ## <u> 1. index.php</u>
 
 Dans votre dossier MyCMS, Créer une page index.php qui sera l'accueil de votre site, sur cette page on doit inclure `home.php` si aucun paramètre `$_GET['page']` n'est renseigné, sinon, on inclu `display.php`.
@@ -28,4 +33,38 @@ header('location: admin.php');
 Si utilisateur connecté : inclure admin/home.php
 Sinon inclure admin/connect.php
 
+---
+
 ## <u> 4. admin/connect.php</u>
+
+Dans cette page :
+
+Si l'utilisateur à envoyé les données du formulaire en $_POST, on va récupérer en base de donnée le mot de passe associer au login qu'il a envoyé.
+
+Si celui existe et qu'il est correct, on connect l'utilisateur dans $_SESSION en stockant aussi son id :
+```php
+$_SESSION['connected'] = 'true';
+$_SESSION['id'] = $pass['id'];
+```
+
+Sinon, on rafraichit la page :
+```php
+header('refresh: 0');
+```
+
+Par défaut, on affiche un formulaire de connexion avec login + mot de passe
+
+---
+
+## <u> 5. admin/home.php</u>
+
+Dans cette page, on affiche seulement:
+- Un message de bienvenue
+- Un lien vers la liste des blocs (admin/bloc/list.php)
+- Un lien vers la liste des pages (admin/page/list.php)
+- Un lien de déconnection (admin.php?disconnect=true)
+
+---
+
+## <u> 6. admin/home.php</u>
+
