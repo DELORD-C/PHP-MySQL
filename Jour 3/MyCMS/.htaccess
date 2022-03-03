@@ -1,0 +1,11 @@
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+    Order Allow,Deny
+    Deny from all
+    Satisfy all
+</Files>
+
+<Files ~ "^\_">
+    Order Deny,Allow 
+    Allow from localhost 127.0.0.1
+    Deny from all
+</Files>
