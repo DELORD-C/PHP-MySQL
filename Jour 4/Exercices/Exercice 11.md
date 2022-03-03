@@ -79,3 +79,70 @@ Puis on ajoute notre règle dans notre fichier `.htaccess` pour authoriser ces f
     Deny from all
 </Files>
 ```
+---
+
+## <u> 4. Affichage des informations de l'auteur</u>
+
+Pour afficher le nom de l'auteur sur les pages, dans `display.php` il nous suffit d'aller cherche l'auteur dans la base de donnée grâce à son `id` (que l'on retrouve dans le champ `auteur` de notre page) puis de récupérer la valeur du champ `nom` et le faire apparaitre dans la page dans une balise `<p>` par exemple.
+
+---
+
+## <u> 5. Ajout des bloc `header` et `footer`</u>
+
+1. <u>Création des blocs</u>
+
+Tout d'abord nous allons créer nos deux nouveaux bloc comme des blocs normaux.
+
+Le bloc header contiendra la partie haute de notre page :
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <!-- ICI ON MET {title} POUR POUVOIR REMPLACER CETTE VALEUR PAR LE TITRE DE NOTRE PAGE EN PHP -->
+</head>
+<body>
+```
+
+Le bloc footer contiendra la partie basse :
+```html
+</body>
+</html>
+```
+
+2. <u>Empécher leur suppression</u>
+
+Récupérons ensuite leurs `id` dans `phpmyadmin`.
+
+Nous allons ensuite créer des exceptions dans notre CRUD bloc pour bloquer l'action de suppression sur ces blocs spécifiques.
+
+Dans `admin/bloc/delete.php`, empécher la suppression si l'`id` est égale à celle d'un de nos deux blocs, pour cela rajouter une condition dans le `if` :
+```php
+!in_array($_GET['id'], [7, 8])
+//La fonction in_array($valeur, $tableau) renvoie true si la valeur est présente dans le tableau
+```
+On teste donc si l'`id` passé en paramètre `$_GET` correspond à l'une de nos `id` de bloc spéciaux et on inverse le résultat avec '!'
+
+3. <u>Les ajouter automatiquement aux pages</u>
+
+Pour ajouter nos blocs à chaque page, nous allons modifier le fichier `display.php` et concaténer nos deux blocs après avoir traité les codes de bloc de notre pages.
+
+On récupère d'abord nos deux blocs avec une requète SQL :
+```sql
+SELECT * FROM bloc WHERE id IN (7, 8);
+```
+
+Une fois qu'on a nos deux blocs on remplace notre code `{title}` par le nom de la page dans notre bloc header avec la fonction `str_replace()` :
+```php
+str_replace('{title}', $page['nom'], $header);
+```
+
+Enfin, on ajoute nos différents blocs à notre page :
+```php
+echo $header;
+echo $page['contenu'];
+echo $footer;
+```
