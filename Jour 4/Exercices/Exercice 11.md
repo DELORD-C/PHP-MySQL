@@ -101,7 +101,7 @@ Le bloc header contiendra la partie haute de notre page :
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
+    <title>MyCMS - {title}</title>
     <!-- ICI ON MET {title} POUR POUVOIR REMPLACER CETTE VALEUR PAR LE TITRE DE NOTRE PAGE EN PHP -->
 </head>
 <body>
