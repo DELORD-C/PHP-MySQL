@@ -5,7 +5,7 @@ Nous allons ajouter des fonctionnalités à notre projet MyCMS :
 - Vérification que l'utilisateur est connecté pour accéder à toutes les pages du backoffice
 - Metter en place la gestion et l'affichage des erreurs de connexion
 - Empécher l'accès aux fichiers qui sont censé être inclus et pas lus directement (exemple : `bdd.php`)
-- Afficher les informations de l'auteur d'une page sur chaque page
+- Afficher les informations de l'auteur d'une page sur chaque page ainsi que la date
 - Ajouter des blocs header et footer modifiables (mais non supprimables) qui seront automatiquement ajouté à chaque page
 
 ---
