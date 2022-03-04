@@ -12,5 +12,6 @@
     <a href='admin/bloc/list.php'>Blocs</a>
     <a href='admin/page/list.php'>Pages</a>
     <a href='admin.php?disconnect=true'>Déconnexion</a>
+    <a href='.'>Retour sur le site</a>
 </body>
 </html>

@@ -8,14 +8,24 @@
 </head>
 <body>
     <h1>Bienvenue sur MyCMS</h1>
+    <h2>Liste des pages</h2>
     <ul>
         <?php
-            include('admin/bdd.php');
-            $requete = $bdd->prepare("SELECT id, nom FROM page");
-            $requete->execute();
-            $pages = $requete->fetchAll();
+            include('admin/_bdd.php');
+            $pages = getPages();
             foreach ($pages as $page) { ?>
                 <li><a href='?page=<?=$page['id']?>'><?=$page['nom']?></a></li>
+            <?php }
+        ?>
+    </ul>
+    <h2>Liste des auteurs</h2>
+    <ul>
+        <?php
+            $requete = $bdd->prepare("SELECT id, nom FROM utilisateur");
+            $requete->execute();
+            $auteurs = $requete->fetchAll();
+            foreach ($auteurs as $auteur) { ?>
+                <li><a href='?auteur=<?=$auteur['id']?>'><?=$auteur['nom']?></a></li>
             <?php }
         ?>
     </ul>

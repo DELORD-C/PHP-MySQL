@@ -9,7 +9,7 @@
 
 <?php
     if (isset($_POST['login']) && isset($_POST['password'])) {
-        include('bdd.php');
+        include('_bdd.php');
         $query = $bdd->prepare("SELECT password, id FROM utilisateur WHERE nom = :nom;");
         $query->execute(["nom" => $_POST['login']]);
         $pass = $query->fetch();
@@ -24,6 +24,12 @@
 ?>
 
 <body>
+    <?php
+        if (isset($_SESSION['error'])) {
+            echo "<p>" . $_SESSION['error'] . "</p>";
+            unset($_SESSION['error']);
+        }
+    ?>
     <form method="post">
         <input type="text" name='login' placeholder='Login'><br>
         <input type="password" name='password' placeholder='Mot de passe'><br>

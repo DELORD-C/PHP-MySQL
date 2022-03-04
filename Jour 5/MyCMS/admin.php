@@ -7,9 +7,9 @@
     }
 
     if (isset($_SESSION['connected'])) {
-        include('admin/home.php');
+        include('admin/_home.php');
     }
     else {
-        include('admin/connect.php');
+        include('admin/_connect.php');
     }
 ?>
