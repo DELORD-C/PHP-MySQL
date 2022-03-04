@@ -16,7 +16,9 @@ Afin de vérifier la connexion d'un utilisateur, il suffit de démarrer la sessi
 Nous allons donc créer un fichier `auth.php` dans lequel :
 - On démarre la session
 - On vérifie dans `$_SESSION` que l'utilisateur est connecté
-- Si l'utilisateur n'est pas connecté, on le redirige vers la page de connexion
+- Si l'utilisateur n'est pas connecté, on le redirige vers la page de connexion.
+
+<b>Attention</b> : Le chemin de rédirection ne sera pas toujours le même en fonction du fichier, pensez à utiliser la racine du serveur ou le chemin absolu (vous pouvez vous servir de la variable `$_SERVER`)
 
 Une fois que notre fichier `auth.php` est prêt, nous n'avons plus qu'à l'inclure en haut de chacun des fichier que l'on veut protéger (tous les fichiers dans le dossier `admin`, sauf `connect.php` et `bdd.php`)
 
