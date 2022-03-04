@@ -19,13 +19,13 @@ function dump($a) {
     echo '</pre>';
 }
 
-function getUserById($id) {
+function getUserById($id, $bdd) {
     $requete = $bdd->prepare("SELECT * FROM utilisateur WHERE id = :id");
     $requete->execute(['id' => $id]);
     return $requete->fetch();
 }
 
-function getPages() {
+function getPages($bdd) {
     $requete = $bdd->prepare("SELECT * FROM page");
     $requete->execute();
     return $requete->fetchAll();

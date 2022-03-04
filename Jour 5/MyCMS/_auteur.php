@@ -1,7 +1,7 @@
 <?php
     include('admin/_bdd.php');
     
-    $auteur = getUserById($_GET['id']);
+    $auteur = getUserById($_GET['auteur'], $bdd);
     
     $requete = $bdd->prepare("SELECT id, nom FROM page WHERE auteur = :id");
     $requete->execute(['id' => $_GET['auteur']]);

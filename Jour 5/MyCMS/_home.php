@@ -12,7 +12,7 @@
     <ul>
         <?php
             include('admin/_bdd.php');
-            $pages = getPages();
+            $pages = getPages($bdd);
             foreach ($pages as $page) { ?>
                 <li><a href='?page=<?=$page['id']?>'><?=$page['nom']?></a></li>
             <?php }
