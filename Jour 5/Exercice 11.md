@@ -7,6 +7,7 @@ Nous allons ajouter des fonctionnalités à notre projet MyCMS :
 - Empécher l'accès aux fichiers qui sont censé être inclus et pas lus directement (exemple : `bdd.php`)
 - Afficher les informations de l'auteur d'une page sur chaque page ainsi que la date
 - Ajouter des blocs header et footer modifiables (mais non supprimables) qui seront automatiquement ajouté à chaque page
+- Afficher la date de création sur les pages
 
 ---
 
@@ -18,7 +19,7 @@ Nous allons donc créer un fichier `auth.php` dans lequel :
 - On vérifie dans `$_SESSION` que l'utilisateur est connecté
 - Si l'utilisateur n'est pas connecté, on le redirige vers la page de connexion.
 
-<b>Attention</b> : Le chemin de rédirection ne sera pas toujours le même en fonction du fichier, pensez à utiliser la racine du serveur ou le chemin absolu (vous pouvez vous servir de la variable `$_SERVER`)
+<b>Attention</b> : Le chemin de rédirection ne sera pas toujours le même en fonction du fichier, pensez à utiliser la racine du serveur ou le chemin absolu
 
 Une fois que notre fichier `auth.php` est prêt, nous n'avons plus qu'à l'inclure en haut de chacun des fichier que l'on veut protéger (tous les fichiers dans le dossier `admin`, sauf `connect.php` et `bdd.php`)
 
@@ -148,3 +149,8 @@ echo $header;
 echo $page['contenu'];
 echo $footer;
 ```
+---
+
+## <u> 6. Ajout la date de création sur les pages</u>
+
+Pour ajouter la date de création à nos page, il suffit de la récupérer dans le tableau contenant les données de notre page, puis de traiter l'information avant de l'afficher (convertir en une date lisible).
